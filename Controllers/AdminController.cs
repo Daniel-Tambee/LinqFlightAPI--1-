@@ -1,5 +1,7 @@
 using LinqFlightAPI.Data;
-using LinqFlightAPI.Models;
+using ModelRoute = LinqFlightAPI.Models.Route;
+using ModelFlight = LinqFlightAPI.Models.Flight;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace LinqFlightAPI.Controllers
@@ -20,10 +22,10 @@ namespace LinqFlightAPI.Controllers
         {
             if (_context.Routes.Any()) return BadRequest("Data already exists.");
 
-            var route = new Route { From = "A", To = "C", Duration = TimeSpan.FromHours(2) };
+            var route = new ModelRoute { From = "A", To = "C", Duration = TimeSpan.FromHours(2) };
             _context.Routes.Add(route);
 
-            var flight = new Flight
+            var flight = new ModelFlight
             {
                 Route = route,
                 Provider = "Virgin",

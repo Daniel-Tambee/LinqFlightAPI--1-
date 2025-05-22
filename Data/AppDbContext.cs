@@ -1,5 +1,7 @@
 using LinqFlightAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using ModelRoute = LinqFlightAPI.Models.Route;
+using ModelFlight = LinqFlightAPI.Models.Flight;
 
 namespace LinqFlightAPI.Data
 {
@@ -11,14 +13,14 @@ namespace LinqFlightAPI.Data
         }
 
         public DbSet<User> Users => Set<User>();
-        public DbSet<LinqFlightAPI.Models.Route> Routes => Set<LinqFlightAPI.Models.Route>();
-        public DbSet<Flight> Flights => Set<Flight>();
+        public DbSet<ModelRoute> Routes => Set<ModelRoute>();
+        public DbSet<ModelFlight> Flights => Set<ModelFlight>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Route>()
+            modelBuilder.Entity<ModelRoute>()
                 .HasMany(r => r.Flights)
                 .WithOne(f => f.Route)
                 .HasForeignKey(f => f.RouteId);
