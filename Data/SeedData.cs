@@ -1,4 +1,5 @@
 using ModelRoute = LinqFlightAPI.Models.Route;
+using LinqFlightAPI.Models.Flight;
 
 namespace LinqFlightAPI.Data
 {
