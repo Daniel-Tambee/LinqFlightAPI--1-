@@ -18,6 +18,11 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
+    - name: Set DOTNET_ROOT and update PATH
+      run: |
+        echo "DOTNET_ROOT=$HOME/.dotnet" >> $GITHUB_ENV
+        echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
     - name: Install EF Core CLI tools
       run: dotnet tool install --global dotnet-ef
 
@@ -29,9 +34,6 @@ jobs:
 
     - name: Apply migrations to database
       run: dotnet ef database update
-      env:
-        DOTNET_ROOT: /home/runner/.dotnet
-        PATH: /home/runner/.dotnet/tools:$PATH
 
     - name: Test
       run: dotnet test --no-build --verbosity normal
