@@ -1,4 +1,4 @@
-using LinqFlightAPI.Models;
+using ModelRoute = LinqFlightAPI.Models.Route;
 
 namespace LinqFlightAPI.Data
 {
@@ -6,11 +6,11 @@ namespace LinqFlightAPI.Data
     {
         public static void Initialize(AppDbContext context)
         {
-            if (context.Routes.Any()) return; 
+            if (context.Routes.Any()) return;
 
-            var route1 = new Route { From = "A", To = "B", Duration = TimeSpan.FromHours(1.5) };
-            var route2 = new Route { From = "B", To = "C", Duration = TimeSpan.FromHours(2) };
-            var route3 = new Route { From = "A", To = "C", Duration = TimeSpan.FromHours(4) };
+            var route1 = new ModelRoute { From = "A", To = "B", Duration = TimeSpan.FromHours(1.5) };
+            var route2 = new ModelRoute { From = "B", To = "C", Duration = TimeSpan.FromHours(2) };
+            var route3 = new ModelRoute { From = "A", To = "C", Duration = TimeSpan.FromHours(4) };
 
             context.Routes.AddRange(route1, route2, route3);
             context.SaveChanges();
