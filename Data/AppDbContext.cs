@@ -11,7 +11,7 @@ namespace LinqFlightAPI.Data
         }
 
         public DbSet<User> Users => Set<User>();
-        public DbSet<Route> Routes => Set<Route>();
+        public DbSet<LinqFlightAPI.Models.Route> Routes => Set<LinqFlightAPI.Models.Route>();
         public DbSet<Flight> Flights => Set<Flight>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
