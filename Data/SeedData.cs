@@ -1,5 +1,5 @@
 using ModelRoute = LinqFlightAPI.Models.Route;
-using LinqFlightAPI.Models.Flight;
+using FlightModel = LinqFlightAPI.Models.Flight;
 
 namespace LinqFlightAPI.Data
 {
@@ -16,7 +16,7 @@ namespace LinqFlightAPI.Data
             context.Routes.AddRange(route1, route2, route3);
             context.SaveChanges();
 
-            var flight1 = new Flight
+            var flight1 = new FlightModel
             {
                 RouteId = route1.Id,
                 Provider = "Virgin",
@@ -24,7 +24,7 @@ namespace LinqFlightAPI.Data
                 DepartureOffset = TimeSpan.FromDays(1) + TimeSpan.FromHours(2)
             };
 
-            var flight2 = new Flight
+            var flight2 = new FlightModel
             {
                 RouteId = route2.Id,
                 Provider = "Delta",
@@ -32,7 +32,7 @@ namespace LinqFlightAPI.Data
                 DepartureOffset = TimeSpan.FromDays(2)
             };
 
-            var flight3 = new Flight
+            var flight3 = new FlightModel
             {
                 RouteId = route3.Id,
                 Provider = "JetBlue",
