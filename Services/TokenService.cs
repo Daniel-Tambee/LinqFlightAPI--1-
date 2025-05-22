@@ -37,4 +37,5 @@ namespace LinqFlightAPI.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
+    
 }
